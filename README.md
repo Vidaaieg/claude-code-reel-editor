@@ -1,5 +1,12 @@
 # 🎬 Claude هو اللي منتج الريل ده — ازاي تخلي Claude Code المونتير بتاعك
 
+<p align="center">
+  <a href="#prompt"><img src="https://img.shields.io/badge/%E2%9A%A1%20GET%20THE%20PROMPT-COPY%20%26%20PASTE-F97316?style=for-the-badge" alt="خد الـ Prompt على طول" height="44"></a>
+  <a href="#fill"><img src="https://img.shields.io/badge/%F0%9F%93%9D%20FILL%20YOUR%20DETAILS-NAME%20%C2%B7%20NICHE%20%C2%B7%20TEXT-2563EB?style=for-the-badge" alt="املا بياناتك" height="44"></a>
+</p>
+
+<p align="center"><b>👆 دوس على الزرار البرتقاني وهتروح للـ Prompt على طول — املا الخانات والصقه في Claude Code.</b></p>
+
 المونتاج بياكل وقتك: قص، captions، زوم، ألوان، graphics ومزيكا… وكل ريل بياخد ساعات.
 الريل اللي شفته على Instagram اتمنتج كله بـ **Claude Code**: أنا بكتب وبصوّر، وهو بيعمل الباقي بالـ code.
 
@@ -111,6 +118,8 @@ finished reel ◄── 7. checks ◄── 6. export ◄── 5. render: cut +
 
 ---
 
+<a id="fill"></a>
+
 ## 📝 املا بياناتك الأول (مرة واحدة بس)
 
 كل الـ Prompts اللي تحت فيها نفس الخانات. املاهم هنا الأول، وبعدين في كل Prompt غيّر كل خانة بين `[ ]` بالقيمة اللي كتبتها:
@@ -127,6 +136,8 @@ finished reel ◄── 7. checks ◄── 6. export ◄── 5. render: cut +
 | `[REFERENCE REEL]` | الريل اللي ألوانه عاجباك (اسمه أو لينكه) | the reel I sent you |
 
 > 💡 **أسرع طريقة:** انسخ الـ Prompt الجاهز اللي تحت (⚡ Prompt واحد شامل)، املا الخانات، والصقه في Claude Code. هو هيعمل كل الخطوات واحدة ورا التانية، ويسألك قبل كل خطوة.
+
+<a id="prompt"></a>
 
 ### ⚡ Prompt واحد شامل — املا والصق
 
