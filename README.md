@@ -111,27 +111,78 @@ finished reel ◄── 7. checks ◄── 6. export ◄── 5. render: cut +
 
 ---
 
-## 💬 الـ Prompts اللي تبدأ بيها
+## 📝 املا بياناتك الأول (مرة واحدة بس)
 
-انسخ، عدّل، والصق في Claude Code. وكل ما تكتبهم بكلامك انت أحسن؛ دول نقطة بداية بس.
+كل الـ Prompts اللي تحت فيها نفس الخانات. املاهم هنا الأول، وبعدين في كل Prompt غيّر كل خانة بين `[ ]` بالقيمة اللي كتبتها:
+
+| الخانة | تكتب فيها إيه | مثال |
+|---|---|---|
+| `[YOUR NAME]` | اسمك أو اسم الأكونت | Steven Ayman |
+| `[CONTENT TYPE]` | نوع المحتوى / الـ niche | AI automation tips |
+| `[AUDIENCE]` | الجمهور بتاعك | Egyptian business owners |
+| `[LANGUAGE]` | اللغة واللهجة | Egyptian Arabic |
+| `[CAPTION STYLE]` | شكل الـ captions | one word at a time, white, bold |
+| `[COMMENT KEYWORD]` | كلمة الكومنت في الـ CTA | VIDEO |
+| `[HOOK TEXT]` | الجملة اللي بتبدأ بيها الريل | Claude edited this reel |
+| `[REFERENCE REEL]` | الريل اللي ألوانه عاجباك (اسمه أو لينكه) | the reel I sent you |
+
+> 💡 **أسرع طريقة:** انسخ الـ Prompt الجاهز اللي تحت (⚡ Prompt واحد شامل)، املا الخانات، والصقه في Claude Code. هو هيعمل كل الخطوات واحدة ورا التانية، ويسألك قبل كل خطوة.
+
+### ⚡ Prompt واحد شامل — املا والصق
+
+```text
+From today you are my video editor. Here are my details — use them in everything you build:
+
+- Name: [YOUR NAME]
+- Content type / niche: [CONTENT TYPE]
+- Audience: [AUDIENCE]
+- Language / dialect: [LANGUAGE]
+- Caption style: [CAPTION STYLE]
+- Comment keyword for the end card: [COMMENT KEYWORD]
+- Hook for the first 3 seconds: [HOOK TEXT]
+- Colour reference: [REFERENCE REEL]
+
+I film vertical talking-head reels on my phone while reading a script from a tablet.
+
+Do this in order, and stop for my approval after each step:
+1. Set up the project: install Python, ffmpeg, faster-whisper, MediaPipe and Remotion; create
+   inbox/ for raw clips, out/ for finished 1080x1920 reels, and a CLAUDE.md rules file with my
+   details above. Read it at the start of every session.
+2. Ask me for 3–5 reference reels (colour, captions, graphics). Measure them and write my look
+   down as rules and a small design system.
+3. When I drop a clip in inbox/: transcribe it with word timestamps, cut silences, stutters,
+   retakes and every glance at my script (never cut a word I say), write captions in [LANGUAGE]
+   (English words stay in English), add the hook "[HOOK TEXT]", one graphic per phrase timed to
+   my words, music, and an end card with the keyword "[COMMENT KEYWORD]".
+4. Show me frames before the final export. Export H.264, 1080x1920, bt709.
+5. Every time I correct you, save the correction to CLAUDE.md so it never happens again.
+```
+
+**بيعمل إيه؟** بيبني المونتير بتاعك كله ببياناتك انت من أول رسالة، ويقف بعد كل خطوة عشان توافق.
+
+---
+
+## 💬 الـ Prompts خطوة بخطوة
+
+لو عايز تمشي خطوة خطوة بدل الـ Prompt الشامل: انسخ، غيّر الخانات اللي بين `[ ]`، والصق في Claude Code. وكل ما تكتبهم بكلامك انت أحسن؛ دول نقطة بداية بس.
 
 ### 🛠️ 1. التجهيز (أول Prompt)
 استخدمه أول مرة تفتح فيها المشروع.
 
 ```text
-From today you are my video editor. I'm a [niche] creator; my audience is [who], and I speak
-[language/dialect]. I film vertical talking-head reels on my phone while reading a script from a
-tablet. Build me a local pipeline: I drop a raw clip in inbox/, you produce a finished
-1080x1920 reel in out/. Use Python + ffmpeg, faster-whisper for transcription, MediaPipe for face
-tracking, and Remotion for motion graphics. Create a rules file you read at the start of every
-session and update whenever I correct you.
+From today you are my video editor. My name is [YOUR NAME]. I make [CONTENT TYPE] reels; my
+audience is [AUDIENCE], and I speak [LANGUAGE]. I film vertical talking-head reels on my phone
+while reading a script from a tablet. Build me a local pipeline: I drop a raw clip in inbox/, you
+produce a finished 1080x1920 reel in out/. Use Python + ffmpeg, faster-whisper for transcription,
+MediaPipe for face tracking, and Remotion for motion graphics. Create a rules file (CLAUDE.md)
+with my details, read it at the start of every session, and update it whenever I correct you.
 ```
 
 **بيعمل إيه؟** بيعرّفه بيك وبشغلته، ويخليه يبني الـ pipeline كله وملف الـ rules.
 
 ### 🎨 2. الألوان
 ```text
-Here is a reference frame whose colour I want. Measure the wall, the skin (on the face itself,
+My colour reference is [REFERENCE REEL]. Measure the wall, the skin (on the face itself,
 using face landmarks) and the black level on the reference and on my footage, then build a grade
 that matches. Show me both side by side before you render.
 ```
@@ -140,11 +191,13 @@ that matches. Show me both side by side before you render.
 
 ### 💬 3. الـ Captions
 ```text
-Captions: one word at a time, [colour], [font], centred on my chest, in [dialect], never formal
-language. Any word I say in English stays written in English. Here is a reel whose captions I like.
+Captions: [CAPTION STYLE], centred on my chest, in [LANGUAGE], never formal language.
+Any word I say in English stays written in English. Here is a reel whose captions I like.
+Add the hook "[HOOK TEXT]" in the first 3 seconds, and an end card that shows the comment
+keyword "[COMMENT KEYWORD]" exactly as I say it in the video.
 ```
 
-**بيعمل إيه؟** بيظبط شكل الـ captions ومكانها، ويمنعه يكتب فصحى أو يعرّب الكلام الإنجليزي.
+**بيعمل إيه؟** بيظبط شكل الـ captions ومكانها، ويحط الـ hook والـ end card بكلامك انت، ويمنعه يكتب فصحى أو يعرّب الكلام الإنجليزي.
 
 ### ✨ 4. الـ Graphics
 ```text
@@ -177,7 +230,7 @@ design system — as a reusable skill, so every new reel comes out like this on 
 ## 🇪🇬 تقدر تكتبله بالمصري كمان
 
 ```text
-من النهارده انت المونتير بتاعي. أنا بعمل ريلز عن [الموضوع] لجمهور [مين]، وبتكلم مصري.
+من النهارده انت المونتير بتاعي. أنا [اسمك]، وبعمل ريلز عن [نوع المحتوى] لجمهور [مين]، وبتكلم مصري.
 ابنيلي pipeline: أرمي الفيديو الخام في inbox/، وانت تطلّعلي ريل جاهز 1080x1920 في out/.
 اقطع السكوت وأي لحظة ببص فيها على الـ script، بس عمرك ما تقص كلمة بقولها.
 اعمل ملف rules تقراه أول كل session، وتضيف فيه أي تصحيح أقولهولك.
@@ -192,6 +245,12 @@ Claude Code بيقرا ملف `CLAUDE.md` في أول المشروع مع بدا
 ```markdown
 # My reel editor
 
+## Who I am
+- Name: [YOUR NAME]
+- Content type: [CONTENT TYPE]
+- Audience: [AUDIENCE]
+- Language: [LANGUAGE]
+
 ## What this is
 Raw clips go in inbox/, finished 1080x1920 reels come out in out/.
 
@@ -200,12 +259,12 @@ Raw clips go in inbox/, finished 1080x1920 reels come out in out/.
 4. check every graphic matches the words  5. render  6. look at frames  7. deliver
 
 ## Standing rules (from me — non-negotiable)
-1. Captions: [your style]. Dialect, never formal. English words stay English.
+1. Captions: [CAPTION STYLE]. [LANGUAGE], never formal. English words stay English.
 2. Never cut a word I say. Cut only silences, stutters and real retakes.
 3. Every glance at my script is cut.
 4. My face is never covered by a graphic.
 5. Every graphic shows exactly what I'm saying, timed to my words.
-6. Colour: matched to [your reference]. Check it side by side.
+6. Colour: matched to [REFERENCE REEL]. Check it side by side.
 7. Export: 1080x1920, square pixels, bt709.
 <!-- add a rule every time you correct something -->
 ```
